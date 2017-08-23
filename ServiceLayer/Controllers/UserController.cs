@@ -12,25 +12,21 @@ namespace ServiceLayer.Controllers
     public class UserController : ApiController
     {
        [HttpGet]
-       public string EfetuarLogin(string email, string senha) 
+       [ActionName("EfetuarLogin")]
+       public bool EfetuarLogin([FromUri]Usuario usuario) 
         {
             using (UsuarioDao dao = new UsuarioDao())
-            {
-                Usuario usuario = new Usuario()
-                {
-                    Email = "user_test@gmail.com",
-                    Senha = "usertest"
-                };
-
+            { 
                 var login = dao.EfetuarLogin(usuario.Email, usuario.Senha);
                 if (login)
-                    return "Nice :)";
-                return "Bad :(";
+                    return true;
+                return false;
             }
         }
 
         [HttpGet]
-        public string CadastrarUsuario(Usuario usuario)
+        [ActionName("CadastrarUsuario")]
+        public string CadastrarUsuario([FromUri]Usuario usuario)
         {
             using (UsuarioDao dao = new UsuarioDao())
             {
