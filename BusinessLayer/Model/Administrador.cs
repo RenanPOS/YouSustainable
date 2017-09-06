@@ -8,5 +8,11 @@ namespace BusinessLayer.Model
 {
     public class Administrador : Usuario
     {
+        public Administrador()
+        {
+            Informativos = new HashSet<Informativo>();
+        }
+
+        public virtual ICollection<Informativo> Informativos { get; set; }
     }
 }

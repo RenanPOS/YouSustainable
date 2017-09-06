@@ -9,13 +9,25 @@ namespace BusinessLayer.Model
 {
     public class Evento : Base
     {
-        private string Nome { get; set; }
-        private string Descricao { get; set; }
-        private string Cidade { get; set; }
-        private string Estado { get; set; }
-        private string Bairro { get; set; }
-        private string Rua { get; set; }
-        private int Numero { get; set; }
-        private string URLFoto { get; set; }
+        public Evento(){
+            Periodos = new List<Periodo>();
+            Denuncias = new List<Denuncia>();
+            Inscritos = new HashSet<Usuario>();
+        }
+
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; } 
+        public string Bairro { get; set; }
+        public string Rua { get; set; }
+        public int Numero { get; set; }
+        public string URLFoto { get; set; }
+
+        public virtual ICollection<Periodo> Periodos { get; set; }
+        public virtual ICollection<Denuncia> Denuncias { get; set; }
+        public virtual ICollection<Usuario> Inscritos { get; set; }
+        public virtual Usuario Organizador { get; set; }
+        public virtual Area Area { get; set; }
     }
 }
