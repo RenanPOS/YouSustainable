@@ -12,3 +12,16 @@ C:\Users\Renan\Desktop\TCC\YouSustainable\BusinessLayer\bin\Debug\EntityFramewor
 C:\Users\Renan\Desktop\TCC\YouSustainable\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Renan\Desktop\TCC\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\Renan\Desktop\TCC\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\DataLayer.dll
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\DataLayer.pdb
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\DataLayer.dll.config
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.pdb
