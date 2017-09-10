@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace BusinessLayer.Dao
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             this.Configuration.LazyLoadingEnabled = false;
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Acao>()
                 .HasRequired(t => t.Usuario);
@@ -47,6 +49,15 @@ namespace BusinessLayer.Dao
                 .HasRequired(t => t.Modulo);
             modelBuilder.Entity<DataRota>()
                 .HasRequired(t => t.RotaColeta);
+            modelBuilder.Entity<Usuario>()
+                .HasMany<Evento>(u => u.Eventos)
+                .WithMany(e => e.Inscritos)
+                .Map(ue =>
+                    {
+                        ue.MapLeftKey("UsuarioId");
+                        ue.MapRightKey("EventoId");
+                        ue.ToTable("UsuarioEvento");
+                    });
         }
     }
 }

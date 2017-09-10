@@ -50,6 +50,7 @@
     <Compile Include="Dao\EventoDao.cs" />
     <Compile Include="Dao\SqlServerDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Dao\UsuarioEventoDao.cs" />
     <Compile Include="Model\Acao.cs" />
     <Compile Include="Model\Administrador.cs" />
     <Compile Include="Model\Alerta.cs" />

@@ -20,11 +20,11 @@ namespace TestLayer
                 Bairro = "Centro",
                 Estado = "PR",
                 Numero = 250,
-                Rua ="João Negrão",
+                Rua = "João Negrão",
                 URLFoto = "foto"
             };
 
-            using(SqlServerDao dao = new SqlServerDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 dao.Inserir<Evento>(evento);
 
@@ -35,16 +35,16 @@ namespace TestLayer
                 dao.Dispose();
                 Assert.IsNotNull(eventos);
             }
-           
+
         }
 
         [TestMethod]
         public void Excluir()
         {
-            using(SqlServerDao dao = new SqlServerDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 var nome = "Evento Dois";
-                
+
                 dao.Excluir<Evento>(p => p.Nome.Equals(nome));
 
                 var eventos = dao.ListarTodos<Evento>();
@@ -55,7 +55,7 @@ namespace TestLayer
         [TestMethod]
         public void EventoUsuarioTest()
         {
-            using(SqlServerDao dao = new SqlServerDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 var user = dao.BuscarPorId<Usuario>(1);
 
@@ -76,6 +76,17 @@ namespace TestLayer
                 dao.Inserir<Evento>(evento);
 
 
+            }
+        }
+
+        [TestMethod]
+        public void BuscarInscrito()
+        {
+            using (UsuarioEventoDao dao = new UsuarioEventoDao())
+            {
+                var inscritos = dao.BuscarInscritos("Evento 3");
+
+                Assert.AreNotEqual(inscritos.Count, 0);
             }
         }
 
