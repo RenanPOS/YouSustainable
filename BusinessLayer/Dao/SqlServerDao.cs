@@ -11,6 +11,22 @@ namespace BusinessLayer.Dao
 {
     public class SqlServerDao : DataLayer.Dao.SqlServerDao
     {
+        protected DbSet<Acao> DbSetAcao { get; set; }
+        protected DbSet<Administrador> DbSetAdministrador { get; set; }
+        protected DbSet<Alerta> DbSetAlerta { get; set; }
+        protected DbSet<Categoria> DbSetCategoria { get; set; }
+        protected DbSet<ComposicaoQuimica> DbSetComposicaoQuimica { get; set; }
+        protected DbSet<DataRota> DbSetDataRota { get; set; }
+        protected DbSet<Foto> DbSetFoto { get; set; }
+        protected DbSet<Localizacao> DbSetLocalizacao { get; set; }
+        protected DbSet<Modulo> DbSetModulo { get; set; }
+        protected DbSet<Origem> DbSetOrigem { get; set; }
+        protected DbSet<Periculosidade> DbSetPericulosidade { get; set; }
+        protected DbSet<Periodo> DbSetPeriodo { get; set; }
+        protected DbSet<PontoDescarte> DbSetPontoDescarte { get; set; }
+        protected DbSet<Privilegio> DbSetPrivilegio { get; set; }
+        protected DbSet<RotaColeta> DbSetRotaColeta { get; set; }
+        protected DbSet<Tipo> DbSetTipo { get; set; }
         protected DbSet<Usuario> DbSetUsuario { get; set; }
         protected DbSet<Area> DbSetArea { get; set; }
         protected DbSet<Evento> DbSetEvento { get; set; }
@@ -21,9 +37,8 @@ namespace BusinessLayer.Dao
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            this.Configuration.LazyLoadingEnabled = false;
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Base>()
-                .HasKey(t => t.Id);
             modelBuilder.Entity<Acao>()
                 .HasRequired(t => t.Usuario);
             modelBuilder.Entity<ZonaVerde>()

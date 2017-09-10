@@ -7,6 +7,7 @@ using DataLayer.Model;
 
 namespace BusinessLayer.Model
 {
+    [Serializable]
     public class Denuncia : Base
     {
         private string Descricao { get; set; }

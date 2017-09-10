@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Dao;
 using BusinessLayer.Model;
+using Newtonsoft.Json;
 
 namespace ServiceLayer.Controllers
 {
@@ -13,12 +14,13 @@ namespace ServiceLayer.Controllers
     {
         [HttpGet]
         [ActionName("ListarEventos")]
-        public List<Evento> ListarEventos(int id_evento)
+        public string ListarEventos(int id_evento)
         {
+            List<Evento> eventos;
             using (EventoDao dao = new EventoDao())
             {
-                List<Evento> eventos = dao.BuscarEventos();
-                return eventos;
+                eventos = dao.BuscarEventos();
+                return JsonConvert.SerializeObject(eventos);
             }
         }
 

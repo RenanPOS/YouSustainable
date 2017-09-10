@@ -24,6 +24,7 @@ namespace BusinessLayer.Model
         public int Numero { get; set; }
         public string URLFoto { get; set; }
 
+        
         public virtual ICollection<Periodo> Periodos { get; set; }
         public virtual ICollection<Denuncia> Denuncias { get; set; }
         public virtual ICollection<Usuario> Inscritos { get; set; }
