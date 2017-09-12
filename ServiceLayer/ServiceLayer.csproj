@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\NHibernateContractResolver.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HelloController.cs" />
     <Compile Include="Controllers\UserController.cs" />

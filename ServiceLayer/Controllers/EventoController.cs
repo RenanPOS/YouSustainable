@@ -7,6 +7,7 @@ using System.Web.Http;
 using BusinessLayer.Dao;
 using BusinessLayer.Model;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace ServiceLayer.Controllers
 {
@@ -20,12 +21,17 @@ namespace ServiceLayer.Controllers
             using (EventoDao dao = new EventoDao())
             {
                 eventos = dao.BuscarEventos();
-                return JsonConvert.SerializeObject(eventos);
+                var serializer = new JsonSerializer
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    ContractResolver = new NHibernateContractResolver()
+                };
+                return NHibernateContractResolver.gerarJSON(eventos);
             }
         }
 
         [HttpGet]
-        [ActionName("Inserir")]
+        [ActionName("CadastrarEvento")]
         public bool Inserir([FromUri]Evento evento)
         {
             using (EventoDao dao = new EventoDao())
