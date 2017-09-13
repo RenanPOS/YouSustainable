@@ -9,9 +9,9 @@ namespace BusinessLayer.Model
 {
     public class Acao : Base
     {
-        private string Nome { get; set; }
-        private string NomePadrao { get; set; }
-        private float Pontuacao { get; set; }
+        public string Nome { get; set; }
+        public string NomePadrao { get; set; }
+        public float Pontuacao { get; set; }
 
         public virtual Usuario Usuario { get; set; }
         public virtual Administrador Administrador { get; set; }

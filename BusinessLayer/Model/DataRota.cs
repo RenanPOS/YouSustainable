@@ -9,9 +9,9 @@ namespace BusinessLayer.Model
 {
     public class DataRota : Base
     {
-        private int DiasSemana { get; set; }
-        private DateTime DiaUnico { get; set; }
-        private DateTime Horario { get; set; }
+        public int DiasSemana { get; set; }
+        public DateTime DiaUnico { get; set; }
+        public DateTime Horario { get; set; }
 
         public virtual RotaColeta RotaColeta { get; set; }
     }

@@ -14,8 +14,8 @@ namespace BusinessLayer.Model
             PontosDescarte = new HashSet<PontoDescarte>();
         }
 
-        private string Nome { get; set; }
-        private string Status { get; set; }
+        public string Nome { get; set; }
+        public string Status { get; set; }
 
         public virtual ICollection<PontoDescarte> PontosDescarte { get; set; }
         public virtual DataRota Data { get; set; }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace TestLayer
 {
     [TestClass]
-    public class UnitTest1
+    public class UsuarioTest
     {
         [TestMethod]
         public void InserirTeste()
@@ -62,7 +62,7 @@ namespace TestLayer
             }
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void LogarTeste()
         {
             using(UsuarioDao dao = new UsuarioDao())
@@ -77,6 +77,6 @@ namespace TestLayer
 
                 Assert.IsTrue(login);
             }
-        }
+        }*/
     }
 }

@@ -9,7 +9,7 @@ namespace BusinessLayer.Model
 {
     public class Privilegio : Base
     {
-        private char Nivel { get; set; }
+        public char Nivel { get; set; }
 
         public virtual Usuario Usuario { get; set; }
         public virtual Area Area { get; set; }

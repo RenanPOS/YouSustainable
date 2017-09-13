@@ -9,7 +9,7 @@ namespace BusinessLayer.Model
 {
     public class Modulo : Base
     {
-        private string Nome { get; set; }
+        public string Nome { get; set; }
 
         public virtual Privilegio Privilegio { get; set; }
     }

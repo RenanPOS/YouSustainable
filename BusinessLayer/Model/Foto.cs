@@ -13,7 +13,7 @@ namespace BusinessLayer.Model
         {
             Denuncias = new List<Denuncia>();
         }
-        private string URL { get; set; }
+        public string URL { get; set; }
 
         public virtual ICollection<Denuncia> Denuncias { get; set; }
         public virtual Residuo Residuo { get; set; }

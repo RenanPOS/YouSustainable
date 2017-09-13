@@ -19,10 +19,10 @@ namespace BusinessLayer.Model
             PontosDescarte = new List<PontoDescarte>();
         }
 
-        private string Nome { get; set; }
-        private string Descricao { get; set; }
-        private string CodGrafico { get; set; }
-        private string Cor { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string CodGrafico { get; set; }
+        public string Cor { get; set; }
 
         public virtual ICollection<Residuo> Residuos { get; set; }
         public virtual ICollection<Origem> Origens { get; set; }

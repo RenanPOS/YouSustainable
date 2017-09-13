@@ -14,8 +14,8 @@ namespace BusinessLayer.Model
             Categorias = new HashSet<Categoria>();
         }
 
-        private string Descricao { get; set; }
-        private int Peso { get; set; }
+        public string Descricao { get; set; }
+        public int Peso { get; set; }
 
         public virtual ICollection<Categoria> Categorias { get; set; }
     }

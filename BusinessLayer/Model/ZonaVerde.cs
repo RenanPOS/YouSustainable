@@ -9,8 +9,8 @@ namespace BusinessLayer.Model
 {
     public class ZonaVerde : Base
     {
-        private string Nome { get; set; }
-        private string Descricao { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
 
         public virtual Localizacao Localizacao { get; set; }
     }

@@ -14,8 +14,8 @@ namespace BusinessLayer.Model
             PontosDescarte = new List<PontoDescarte>();
         }
 
-        private string Latitude { get; set; }
-        private string Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
 
         public virtual ICollection<PontoDescarte> PontosDescarte { get; set; }
         public virtual ZonaVerde ZonaVerde { get; set; }

@@ -14,10 +14,10 @@ namespace BusinessLayer.Model
             Fotos = new List<Foto>();
         }
 
-        private string Nome { get; set; }
-        private string Descricao { get; set; }
-        private string Estado { get; set; }
-        private string Observacao { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string Estado { get; set; }
+        public string Observacao { get; set; }
 
         public virtual ICollection<Foto> Fotos { get; set; }
         public virtual Categoria Categoria { get; set; }

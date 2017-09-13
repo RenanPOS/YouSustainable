@@ -15,8 +15,8 @@ namespace BusinessLayer.Model
             RotasColeta = new HashSet<RotaColeta>();
         }
 
-        private string Estado { get; set; }
-        private bool EhPArticular { get; set; }
+        public string Estado { get; set; }
+        public bool EhPArticular { get; set; }
 
         public virtual Area Area { get; set; }
         public virtual Categoria Categoria { get; set; }

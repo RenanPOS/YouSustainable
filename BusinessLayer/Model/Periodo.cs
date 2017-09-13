@@ -9,8 +9,8 @@ namespace BusinessLayer.Model
 {
     public class Periodo : Base
     {
-        private DateTime HorarioInical { get; set; }
-        private DateTime HorarioFinal { get; set; }
+        public DateTime HorarioInical { get; set; }
+        public DateTime HorarioFinal { get; set; }
 
         public virtual Evento Evento { get; set; }
     }

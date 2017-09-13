@@ -14,8 +14,8 @@ namespace BusinessLayer.Model
             Administradores = new HashSet<Administrador>();
         }
 
-        private string Titulo { get; set; }
-        private string Descricao { get; set; }
+        public string Titulo { get; set; }
+        public string Descricao { get; set; }
 
         public virtual ICollection<Administrador> Administradores { get; set; }
     }

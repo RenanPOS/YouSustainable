@@ -58,6 +58,8 @@ namespace BusinessLayer.Dao
                         ue.MapRightKey("EventoId");
                         ue.ToTable("UsuarioEvento");
                     });
+            modelBuilder.Entity<Usuario>().ToTable("Usuario");
+            modelBuilder.Entity<Administrador>().ToTable("Administrador");
         }
     }
 }

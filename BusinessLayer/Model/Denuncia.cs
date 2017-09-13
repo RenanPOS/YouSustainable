@@ -10,8 +10,8 @@ namespace BusinessLayer.Model
     [Serializable]
     public class Denuncia : Base
     {
-        private string Descricao { get; set; }
-        private string Estado { get; set; }
+        public string Descricao { get; set; }
+        public string Estado { get; set; }
 
         public virtual Evento Evento { get; set; }
         public virtual Usuario Usuario { get; set; }
