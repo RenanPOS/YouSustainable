@@ -9,8 +9,13 @@ namespace BusinessLayer.Model
 {
     public class Modulo : Base
     {
+        public Modulo()
+        {
+            Privilegios = new List<Privilegio>();
+        }
+
         public string Nome { get; set; }
 
-        public virtual Privilegio Privilegio { get; set; }
+        public virtual ICollection<Privilegio> Privilegios { get; set; }
     }
 }

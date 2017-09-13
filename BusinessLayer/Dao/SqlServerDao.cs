@@ -43,10 +43,11 @@ namespace BusinessLayer.Dao
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Acao>()
                 .HasRequired(t => t.Usuario);
-            modelBuilder.Entity<ZonaVerde>()
-                .HasRequired(t => t.Localizacao);
-            modelBuilder.Entity<Privilegio>()
-                .HasRequired(t => t.Modulo);
+            modelBuilder.Entity<Localizacao>()
+                .HasOptional(l => l.ZonaVerde)
+                .WithRequired(z => z.Localizacao);
+            /*modelBuilder.Entity<Privilegio>()
+                .HasRequired(t => t.Modulo);*/
             modelBuilder.Entity<DataRota>()
                 .HasRequired(t => t.RotaColeta);
             modelBuilder.Entity<Usuario>()
