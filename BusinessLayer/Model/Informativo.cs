@@ -17,6 +17,6 @@ namespace BusinessLayer.Model
         public string Titulo { get; set; }
         public string Descricao { get; set; }
 
-        public virtual ICollection<Administrador> Administradores { get; set; }
+        public ICollection<Administrador> Administradores { get; set; }
     }
 }

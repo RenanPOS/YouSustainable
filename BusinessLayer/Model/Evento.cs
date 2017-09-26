@@ -25,10 +25,10 @@ namespace BusinessLayer.Model
         public string URLFoto { get; set; }
 
         
-        public virtual ICollection<Periodo> Periodos { get; set; }
-        public virtual ICollection<Denuncia> Denuncias { get; set; }
-        public virtual ICollection<Usuario> Inscritos { get; set; }
-        public virtual Usuario Organizador { get; set; }
-        public virtual Area Area { get; set; }
+        public ICollection<Periodo> Periodos { get; set; }
+        public ICollection<Denuncia> Denuncias { get; set; }
+        public ICollection<Usuario> Inscritos { get; set; }
+        public Usuario Organizador { get; set; }
+        public Area Area { get; set; }
     }
 }

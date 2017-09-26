@@ -12,6 +12,6 @@ namespace BusinessLayer.Model
         public DateTime HorarioInicial { get; set; }
         public DateTime HorarioFinal { get; set; }
 
-        public virtual Evento Evento { get; set; }
+        public Evento Evento { get; set; }
     }
 }

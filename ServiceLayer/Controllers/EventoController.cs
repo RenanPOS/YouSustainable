@@ -7,7 +7,6 @@ using System.Web.Http;
 using BusinessLayer.Dao;
 using BusinessLayer.Model;
 using Newtonsoft.Json;
-using System.IO;
 
 namespace ServiceLayer.Controllers
 {
@@ -21,12 +20,23 @@ namespace ServiceLayer.Controllers
             using (EventoDao dao = new EventoDao())
             {
                 eventos = dao.BuscarEventos();
+                if(eventos.Count > 0)
+                {
+                    PeriodoDao periodoDao = new PeriodoDao();
+                    foreach(Evento evento in eventos)
+                    {
+                        evento.Periodos = periodoDao.ListarPorEvento(evento);
+                    }
+                }
+                /*
                 var serializer = new JsonSerializer
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                     ContractResolver = new NHibernateContractResolver()
                 };
                 return NHibernateContractResolver.gerarJSON(eventos);
+                */
+                return JsonConvert.SerializeObject(eventos);
             }
         }
 

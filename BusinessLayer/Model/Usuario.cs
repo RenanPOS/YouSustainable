@@ -27,13 +27,13 @@ namespace BusinessLayer.Model
         public float Pontos { get; set; }
         public int RaioBusca { get; set; }
 
-        public virtual ICollection<Evento> Eventos { get; set; }
-        public virtual ICollection<Denuncia> Denuncias { get; set; }
-        public virtual ICollection<Foto> Fotos { get; set; }
-        public virtual ICollection<Residuo> Residuos { get; set; }
-        public virtual ICollection<Alerta> Alertas { get; set; }
-        public virtual ICollection<Acao> Acoes { get; set; }
-        public virtual ICollection<Localizacao> Localizacoes { get; set; }
-        public virtual ICollection<Privilegio> Privilegios { get; set; }
+        public ICollection<Evento> Eventos { get; set; }
+        public ICollection<Denuncia> Denuncias { get; set; }
+        public ICollection<Foto> Fotos { get; set; }
+        public ICollection<Residuo> Residuos { get; set; }
+        public ICollection<Alerta> Alertas { get; set; }
+        public ICollection<Acao> Acoes { get; set; }
+        public ICollection<Localizacao> Localizacoes { get; set; }
+        public ICollection<Privilegio> Privilegios { get; set; }
     }
 }

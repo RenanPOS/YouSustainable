@@ -16,6 +16,5 @@ C:\Users\lucas\Source\Repos\YouSustainable\DataLayer\bin\Debug\EntityFramework.d
 C:\Users\lucas\Source\Repos\YouSustainable\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\lucas\Source\Repos\YouSustainable\DataLayer\bin\Debug\EntityFramework.xml
 C:\Users\lucas\Source\Repos\YouSustainable\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\lucas\Source\Repos\YouSustainable\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
 C:\Users\lucas\Source\Repos\YouSustainable\DataLayer\obj\Debug\DataLayer.dll
 C:\Users\lucas\Source\Repos\YouSustainable\DataLayer\obj\Debug\DataLayer.pdb

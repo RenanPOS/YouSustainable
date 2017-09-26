@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Dao;
 using BusinessLayer.Model;
+using Newtonsoft.Json;
 
 namespace ServiceLayer.Controllers
 {
@@ -13,14 +14,14 @@ namespace ServiceLayer.Controllers
     {
        [HttpGet]
        [ActionName("EfetuarLogin")]
-       public bool EfetuarLogin([FromUri]Usuario usuario) 
+       public string EfetuarLogin([FromUri]Usuario usuario) 
         {
             using (UsuarioDao dao = new UsuarioDao())
             { 
                 var login = dao.EfetuarLogin(usuario.Email, usuario.Senha);
-                if (login)
-                    return true;
-                return false;
+                if (login != null)
+                    return JsonConvert.SerializeObject(login);
+                return "";
             }
         }
 

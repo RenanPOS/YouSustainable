@@ -9,25 +9,25 @@ namespace BusinessLayer.Dao
 {
     public class UsuarioDao : SqlServerDao
     {
-        public bool EfetuarLogin(string email, string senha)
+        public Usuario EfetuarLogin(string email, string senha)
         {
             using(SqlServerDao dao = new UsuarioDao())
             {
                 var login = dao.Buscar<Usuario>(p => p.Email.Equals(email)).FirstOrDefault();
                 if(login == null)
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
                     if (login.Senha.Equals(senha))
                     {
-                        return true;
+                        return login;
                     }
                 }
             }
 
-            return false;
+            return null;
         }
 
         public void CadastrarUsuario(Usuario usuario)
