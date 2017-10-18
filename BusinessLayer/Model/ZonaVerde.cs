@@ -17,6 +17,6 @@ namespace BusinessLayer.Model
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
-        public virtual Localizacao Localizacao { get; set; }
+        public Localizacao Localizacao { get; set; }
     }
 }

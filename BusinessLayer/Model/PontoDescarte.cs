@@ -18,12 +18,12 @@ namespace BusinessLayer.Model
         public string Estado { get; set; }
         public bool EhPArticular { get; set; }
 
-        public virtual Area Area { get; set; }
-        public virtual Categoria Categoria { get; set; }
-        public virtual Localizacao Localizacao { get; set; }
-        public virtual ZonaVerde ZonaVerde { get; set; }
-        public virtual ICollection<Alerta> Alertas { get; set; }
-        public virtual ICollection<RotaColeta> RotasColeta { get; set; }
+        public Area Area { get; set; }
+        public Categoria Categoria { get; set; }
+        public Localizacao Localizacao { get; set; }
+        public ZonaVerde ZonaVerde { get; set; }
+        public List<Alerta> Alertas { get; set; }
+        public ICollection<RotaColeta> RotasColeta { get; set; }
 
     }
 }

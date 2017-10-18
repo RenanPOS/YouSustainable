@@ -59,6 +59,8 @@
     <Compile Include="Testes\AreaTest.cs" />
     <Compile Include="Testes\AdministradorTest.cs" />
     <Compile Include="Testes\InformativoTest.cs" />
+    <Compile Include="Testes\PontoDescarteTest.cs" />
+    <Compile Include="Testes\AlertaTest.cs" />
     <Compile Include="Testes\ZonaVerdeTest.cs" />
     <Compile Include="Testes\UsuarioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

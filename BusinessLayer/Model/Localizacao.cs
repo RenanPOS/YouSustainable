@@ -17,9 +17,9 @@ namespace BusinessLayer.Model
         public string Latitude { get; set; }
         public string Longitude { get; set; }
 
-        public virtual ICollection<PontoDescarte> PontosDescarte { get; set; }
-        public virtual ZonaVerde ZonaVerde { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public  ICollection<PontoDescarte> PontosDescarte { get; set; }
+        public  ZonaVerde ZonaVerde { get; set; }
+        public  Usuario Usuario { get; set; }
 
     }
 }

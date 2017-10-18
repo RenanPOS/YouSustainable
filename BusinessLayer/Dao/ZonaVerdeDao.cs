@@ -13,6 +13,8 @@ namespace BusinessLayer.Dao
         {
             using(SqlServerDao dao = new SqlServerDao())
             {
+                dao.Inserir<Localizacao>(zonaVerde.Localizacao);
+
                 dao.Inserir<ZonaVerde>(zonaVerde);
 
                 var test = dao.Buscar<ZonaVerde>(p => p.Nome.Equals(zonaVerde.Nome));
@@ -30,7 +32,16 @@ namespace BusinessLayer.Dao
         {
             using (SqlServerDao dao = new SqlServerDao())
             {
-                List<ZonaVerde> zonasVerdes = dao.Buscar<ZonaVerde>(p => p.Id > 0);
+                List<ZonaVerde> zonasVerdes = dao.ListarTodos<ZonaVerde>();
+                return zonasVerdes;
+            }
+        }
+
+        public List<ZonaVerde> ListarTodas()
+        {
+            using(SqlServerDao dao = new SqlServerDao())
+            {
+                List<ZonaVerde> zonasVerdes = dao.ListarTodos<ZonaVerde>();
                 return zonasVerdes;
             }
         }
