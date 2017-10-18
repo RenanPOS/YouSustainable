@@ -15,8 +15,8 @@ namespace BusinessLayer.Model
         }
         public string URL { get; set; }
 
-        public virtual ICollection<Denuncia> Denuncias { get; set; }
-        public virtual Residuo Residuo { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public ICollection<Denuncia> Denuncias { get; set; }
+        public Residuo Residuo { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }

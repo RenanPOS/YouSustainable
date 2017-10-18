@@ -19,8 +19,8 @@ namespace BusinessLayer.Model
         public string Estado { get; set; }
         public string Observacao { get; set; }
 
-        public virtual ICollection<Foto> Fotos { get; set; }
-        public virtual Categoria Categoria { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public ICollection<Foto> Fotos { get; set; }
+        public Categoria Categoria { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }
