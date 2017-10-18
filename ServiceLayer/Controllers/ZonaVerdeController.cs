@@ -14,12 +14,14 @@ namespace ServiceLayer.Controllers
     {
         [HttpGet]
         [ActionName("CadastrarZonaVerde")]
-        public bool Inserir([FromUri]ZonaVerde zonaVerde)
+        public bool Inserir([FromUri]ZonaVerde zonaVerde, [FromUri]Localizacao localizacao)
         {
-            ZonaVerdeDao dao = new ZonaVerdeDao();
-            var test = dao.Inserir(zonaVerde);
+            zonaVerde.Localizacao = localizacao;
+            
+            ZonaVerdeDao zonaVerdeDao = new ZonaVerdeDao();
+            var test = zonaVerdeDao.Inserir(zonaVerde);
 
-            return test;
+            return true;
         }
 
         [HttpGet]
@@ -29,7 +31,7 @@ namespace ServiceLayer.Controllers
             List<ZonaVerde> zonasVerdes;
             ZonaVerdeDao dao = new ZonaVerdeDao();
 
-            zonasVerdes = dao.BuscarZonasVerdes();
+            zonasVerdes = dao.ListarTodas();
                 
             return JsonConvert.SerializeObject(zonasVerdes);
             

@@ -11,7 +11,7 @@ namespace BusinessLayer.Model
     {
         public string Descricao { get; set; }
 
-        public virtual PontoDescarte PontoDescarte { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public PontoDescarte PontoDescarte { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }
