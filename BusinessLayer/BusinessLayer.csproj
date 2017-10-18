@@ -49,8 +49,10 @@
   <ItemGroup>
     <Compile Include="Dao\CategoriaDao.cs" />
     <Compile Include="Dao\EventoDao.cs" />
+    <Compile Include="Dao\FotoDao.cs" />
     <Compile Include="Dao\InformativoDao.cs" />
     <Compile Include="Dao\PeriodoDao.cs" />
+    <Compile Include="Dao\ResiduoDao.cs" />
     <Compile Include="Dao\SqlServerDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Dao\UsuarioEventoDao.cs" />
