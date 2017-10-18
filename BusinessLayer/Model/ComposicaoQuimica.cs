@@ -17,6 +17,6 @@ namespace BusinessLayer.Model
         public string Descricao { get; set; }
         public int Peso { get; set; }
 
-        public virtual ICollection<Categoria> Categorias { get; set; }
+        public ICollection<Categoria> Categorias { get; set; }
     }
 }

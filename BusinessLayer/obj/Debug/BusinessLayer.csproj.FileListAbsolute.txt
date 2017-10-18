@@ -25,3 +25,4 @@ C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\bin\Debug\EntityFramewo
 C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\lucas\Source\Repos\YouSustainable\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
