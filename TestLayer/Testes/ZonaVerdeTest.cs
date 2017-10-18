@@ -14,7 +14,7 @@ namespace TestLayer.Testes
             Localizacao localizacao = new Localizacao()
             {
                 Latitude = "25º 25' 40'' N",
-                Longitude = "49º 16' 23'' W",
+                Longitude = "49º 16' 23'' W"
             };
 
             ZonaVerde zonaVerde = new ZonaVerde()
@@ -26,9 +26,9 @@ namespace TestLayer.Testes
 
             using(SqlServerDao dao = new SqlServerDao())
             {
-                //dao.Inserir<Localizacao>(localizacao);
-
-                //zonaVerde.Localizacao = dao.BuscarPorId<Localizacao>(2);
+                dao.Inserir<Localizacao>(localizacao);
+            
+                zonaVerde.Localizacao = dao.BuscarPorId<Localizacao>(1);
                 localizacao.ZonaVerde = zonaVerde;
 
                 dao.Inserir<ZonaVerde>(zonaVerde);
