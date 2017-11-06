@@ -42,17 +42,17 @@ namespace ServiceLayer.Controllers
 
         [HttpGet]
         [ActionName("CadastrarEvento")]
-        public bool Inserir([FromUri]Evento evento)
+        public int Inserir([FromUri]Evento evento)
         {
             using (EventoDao dao = new EventoDao())
             {
                 try
                 {
                     dao.Inserir(evento);
-                    return true;
+                    return evento.Id;
                 }catch(Exception e)
                 {
-                    return false;
+                    return 0;
                 }
             }
         }

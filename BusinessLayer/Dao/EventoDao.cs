@@ -28,13 +28,17 @@ namespace BusinessLayer.Dao
             }
         }
 
-        public void Inserir(Evento evento)
+        public bool Inserir(Evento evento)
         {
-            using (SqlServerDao dao = new EventoDao())
+            if (evento != null)
             {
-                //Evento evento = dao.Buscar<Evento>(p => p.Nome.Equals(nome)).FirstOrDefault();
+                using (SqlServerDao dao = new EventoDao())
+                {
                     dao.Inserir(evento);
+                    return true;
+                }
             }
+            return false;
         }
     }
 }

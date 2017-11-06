@@ -25,7 +25,6 @@ namespace ServiceLayer.Controllers
                         return foto.Id;
                     }catch(Exception e)
                     {
-                        Console.WriteLine(e.Message);
                         return 0;
                     }
                 }

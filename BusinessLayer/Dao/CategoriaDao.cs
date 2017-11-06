@@ -9,7 +9,7 @@ namespace BusinessLayer.Dao
 {
     public class CategoriaDao : SqlServerDao
     {
-        public List<Categoria> ListarTodas(string categoria)
+        public List<Categoria> ListarTodas()
         {
             using (SqlServerDao dao = new CategoriaDao())
             {

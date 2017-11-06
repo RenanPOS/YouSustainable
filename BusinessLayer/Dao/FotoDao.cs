@@ -16,7 +16,6 @@ namespace BusinessLayer.Dao
                 using(SqlServerDao dao = new FotoDao())
                 {
                     dao.Inserir(foto);
-                    Console.WriteLine(foto.Id);
                     return true;
                 }
             }

@@ -48,3 +48,4 @@ C:\Users\lucas\Source\Repos\YouSustainable\TestLayer\bin\Debug\Microsoft.VisualS
 C:\Users\lucas\Source\Repos\YouSustainable\TestLayer\obj\Debug\TestLayer.csprojResolveAssemblyReference.cache
 C:\Users\lucas\Source\Repos\YouSustainable\TestLayer\obj\Debug\TestLayer.dll
 C:\Users\lucas\Source\Repos\YouSustainable\TestLayer\obj\Debug\TestLayer.pdb
+C:\Users\lucas\Source\Repos\YouSustainable\TestLayer\obj\Debug\TestLayer.csproj.CoreCompileInputs.cache

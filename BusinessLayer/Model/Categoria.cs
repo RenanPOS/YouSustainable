@@ -24,11 +24,11 @@ namespace BusinessLayer.Model
         public string CodGrafico { get; set; }
         public string Cor { get; set; }
 
-        public virtual ICollection<Residuo> Residuos { get; set; }
-        public virtual ICollection<Origem> Origens { get; set; }
-        public virtual ICollection<Periculosidade> Periculosidades { get; set; }
-        public virtual ICollection<Tipo> Tipos { get; set; }
-        public virtual ICollection<ComposicaoQuimica> ComposicoesQuimica { get; set; }
-        public virtual ICollection<PontoDescarte> PontosDescarte { get; set; }
+        public ICollection<Residuo> Residuos { get; set; }
+        public ICollection<Origem> Origens { get; set; }
+        public ICollection<Periculosidade> Periculosidades { get; set; }
+        public ICollection<Tipo> Tipos { get; set; }
+        public ICollection<ComposicaoQuimica> ComposicoesQuimica { get; set; }
+        public ICollection<PontoDescarte> PontosDescarte { get; set; }
     }
 }

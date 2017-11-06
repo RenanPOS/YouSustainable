@@ -7,21 +7,37 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ServiceLayer.Controllers
 {
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CategoriaController : ApiController
     {
         [HttpGet]
         [ActionName("ListarTodasCategorias")]
-        public string ListarTodasCategorias(string categoria)
+        public string ListarTodasCategorias()
         {
             List<Categoria> categorias;
             using(CategoriaDao dao = new CategoriaDao())
             {
-                categorias = dao.ListarTodas(categoria);
+                categorias = dao.ListarTodas();
+                /*
+                if(categorias.Count > 0)
+                {
+                    SqlServerDao dao2 = new SqlServerDao();
+                    
+                    foreach(Categoria categoria in categorias)
+                    {
+                        categoria.Origens = dao2.ListarTodos<Origem>();
+                        categoria.Periculosidades = dao2.Buscar<Periculosidade>(p => p.Categorias.Contains(categoria));
+                        categoria.ComposicoesQuimica = dao2.Buscar<ComposicaoQuimica>(p => p.Categorias.Contains(categoria));
+                        categoria.Tipos = dao2.Buscar<Tipo>(p => p.Categorias.Contains(categoria));
+                    }
+                }
+                */
+                return JsonConvert.SerializeObject(categorias);
             }
-            return JsonConvert.SerializeObject(categorias);
         }
 
         [HttpGet]
@@ -69,6 +85,21 @@ namespace ServiceLayer.Controllers
                 compQuimica = dao.ListarComposicaoQuimica(categoria);
             }
             return JsonConvert.SerializeObject(compQuimica);
+        }
+        [HttpPost]
+        [ActionName("SalvarCategoria")]
+        public int SalvarCategoria([FromBody] Categoria categoria)
+        {
+            CategoriaDao dao = new CategoriaDao();
+            if(categoria != null)
+            {
+                dao.Inserir(categoria);
+                if(categoria.Id > 0)
+                {
+                    return categoria.Id;
+                }
+            }
+            return 0;
         }
     }
 }
