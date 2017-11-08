@@ -27,14 +27,12 @@ namespace ServiceLayer.Controllers
         [ActionName("Denunciar")]
         public int Denunciar([FromBody]Denuncia denuncia)
         {
-            using(DenunciaDao dao = new DenunciaDao())
-            {
+            DenunciaDao dao = new DenunciaDao();
                 if(denuncia != null)
                 {
                     dao.Inserir(denuncia);
                     return denuncia.Id;
                 }
-            }
             return 0;
         }
 

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Dao
 {
-    public class ResiduoDao : SqlServerDao
+    public class ResiduoDao
     {
         public int Inserir(Residuo residuo)
         {
             if(residuo != null)
             {
-                using(SqlServerDao dao = new ResiduoDao())
+                using(SqlServerDao dao = new SqlServerDao())
                 {
                     dao.Inserir(residuo);
                     return residuo.Id;

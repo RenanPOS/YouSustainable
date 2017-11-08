@@ -60,6 +60,7 @@
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Dao\UsuarioEventoDao.cs" />
     <Compile Include="Dao\ZonaVerdeDao.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Acao.cs" />
     <Compile Include="Model\Administrador.cs" />
     <Compile Include="Model\Alerta.cs" />

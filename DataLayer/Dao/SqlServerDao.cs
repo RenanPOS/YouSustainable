@@ -5,7 +5,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer.Migrations;
 using DataLayer.Model;
 
 namespace DataLayer.Dao
@@ -19,7 +18,7 @@ namespace DataLayer.Dao
 
         static SqlServerDao()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerDao, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerDao, Configuration>());
         }
 
         #endregion

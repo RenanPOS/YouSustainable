@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Dao
 {
-    public class DenunciaDao: SqlServerDao
+    public class DenunciaDao
     {
         public void Inserir(Denuncia denuncia)
         {

@@ -61,6 +61,7 @@
     <Compile Include="Testes\InformativoTest.cs" />
     <Compile Include="Testes\PontoDescarteTest.cs" />
     <Compile Include="Testes\AlertaTest.cs" />
+    <Compile Include="Testes\UnitTest1.cs" />
     <Compile Include="Testes\ZonaVerdeTest.cs" />
     <Compile Include="Testes\UsuarioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{D9F33F7E-DCD9-4299-937E-DBF2F98863CB}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
       <Project>{CE1BD0B2-9FBC-4985-BCF6-1F0C429036E0}</Project>
       <Name>DataLayer</Name>

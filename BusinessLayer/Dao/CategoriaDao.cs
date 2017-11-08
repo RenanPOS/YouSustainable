@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Dao
 {
-    public class CategoriaDao : SqlServerDao
+    public class CategoriaDao
     {
         public List<Categoria> ListarTodas()
         {
-            using (SqlServerDao dao = new CategoriaDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 List<Categoria> categorias = dao.ListarTodos<Categoria>();
                 return categorias;
@@ -20,7 +20,7 @@ namespace BusinessLayer.Dao
 
         public List<Origem> ListarOrigem(Categoria categoria)
         {
-            using (SqlServerDao dao = new CategoriaDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 List<Origem> origens;
                 if (categoria.Id != 0)
@@ -36,7 +36,7 @@ namespace BusinessLayer.Dao
         }
         public List<Periculosidade> ListarPericulosidade(Categoria categoria)
         {
-            using (SqlServerDao dao = new CategoriaDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 List<Periculosidade> periculosidades;
                 if (categoria.Id != 0)
@@ -53,7 +53,7 @@ namespace BusinessLayer.Dao
 
         public List<Tipo> ListarTipo(Categoria categoria)
         {
-            using (SqlServerDao dao = new CategoriaDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 List<Tipo> tipos;
                 if (categoria.Id != 0)
@@ -70,7 +70,7 @@ namespace BusinessLayer.Dao
 
         public List<ComposicaoQuimica> ListarComposicaoQuimica(Categoria categoria)
         {
-            using (SqlServerDao dao = new CategoriaDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 List<ComposicaoQuimica> compQuimica;
                 if (categoria.Id != 0)
@@ -83,6 +83,39 @@ namespace BusinessLayer.Dao
                 }
                 return compQuimica;
             }
+        }
+        public int InserirCategoria(Categoria categoria)
+        {
+            SqlServerDao dao_generico = new SqlServerDao();
+            List<Origem> origens =  new List<Origem>();
+            foreach(Origem origem in categoria.Origens)
+            {
+                origens.Add(dao_generico.BuscarPorId<Origem>(origem.Id));
+            }
+            categoria.Origens = origens;
+
+            List<ComposicaoQuimica> composicoesQuimicas = new List<ComposicaoQuimica>();
+            foreach (ComposicaoQuimica composicao in categoria.ComposicoesQuimica)
+            {
+                composicoesQuimicas.Add(dao_generico.BuscarPorId<ComposicaoQuimica>(composicao.Id));
+            }
+            categoria.ComposicoesQuimica = composicoesQuimicas;
+
+            List<Periculosidade> periculosidades = new List<Periculosidade>();
+            foreach (Periculosidade periculosidade in categoria.Periculosidades)
+            {
+                periculosidades.Add(dao_generico.BuscarPorId<Periculosidade>(periculosidade.Id));
+            }
+            categoria.Periculosidades = periculosidades;
+
+            List<Tipo> tipos = new List<Tipo>();
+            foreach (Tipo tipo in categoria.Tipos)
+            {
+                tipos.Add(dao_generico.BuscarPorId<Tipo>(tipo.Id));
+            }
+            categoria.Tipos = tipos;
+            dao_generico.Inserir(categoria);
+            return categoria.Id;
         }
     }
 }

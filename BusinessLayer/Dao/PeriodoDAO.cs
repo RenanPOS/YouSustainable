@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Dao
 {
-    public class PeriodoDao : SqlServerDao
+    public class PeriodoDao
     {
         public List<Periodo> ListarPorEvento(Evento evento)
         {
-            using(SqlServerDao dao = new PeriodoDao())
+            using(SqlServerDao dao = new SqlServerDao())
             {
                 List<Periodo> periodos = dao.Buscar<Periodo>(p => p.Evento.Id == evento.Id);
                 return periodos;

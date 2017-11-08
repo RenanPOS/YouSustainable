@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Dao
 {
-    public class FotoDao : SqlServerDao
+    public class FotoDao
     {
         public bool Inserir(Foto foto)
         {
             if( foto != null)
             {
-                using(SqlServerDao dao = new FotoDao())
+                using(SqlServerDao dao = new SqlServerDao())
                 {
                     dao.Inserir(foto);
                     return true;

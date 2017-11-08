@@ -23,7 +23,7 @@ namespace ServiceLayer.Controllers
                 {
                     foreach(int id_foto in id_fotos)
                     {
-                        FotoDao fotodao = new FotoDao();
+                        SqlServerDao fotodao = new SqlServerDao();
                         Foto foto = fotodao.BuscarPorId<Foto>(id_foto);
                         if (foto != null)
                         {
@@ -41,9 +41,8 @@ namespace ServiceLayer.Controllers
         [ActionName("ListarResiduos")]
         public string ListarResiduos([FromUri] int ultimoId)
         {
-            
-            using(ResiduoDao dao = new ResiduoDao())
-                {
+
+            SqlServerDao dao = new SqlServerDao();
                 List<Residuo> residuos;
                 if (ultimoId > 0)
                 {
@@ -62,7 +61,6 @@ namespace ServiceLayer.Controllers
                 {
                     return "";
                 }
-            }
         }
     }
 }

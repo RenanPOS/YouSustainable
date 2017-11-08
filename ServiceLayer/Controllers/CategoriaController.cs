@@ -19,8 +19,7 @@ namespace ServiceLayer.Controllers
         public string ListarTodasCategorias()
         {
             List<Categoria> categorias;
-            using(CategoriaDao dao = new CategoriaDao())
-            {
+            CategoriaDao dao = new CategoriaDao();
                 categorias = dao.ListarTodas();
                 /*
                 if(categorias.Count > 0)
@@ -37,7 +36,6 @@ namespace ServiceLayer.Controllers
                 }
                 */
                 return JsonConvert.SerializeObject(categorias);
-            }
         }
 
         [HttpGet]
@@ -45,10 +43,8 @@ namespace ServiceLayer.Controllers
         public string ListarOrigens([FromUri] Categoria categoria)
         {
             List<Origem> origens;
-            using (CategoriaDao dao = new CategoriaDao())
-            {
-                origens = dao.ListarOrigem(categoria);
-            }
+            CategoriaDao dao = new CategoriaDao();
+            origens = dao.ListarOrigem(categoria);
             return JsonConvert.SerializeObject(origens);
         }
 
@@ -57,10 +53,8 @@ namespace ServiceLayer.Controllers
         public string ListarPericulosidades([FromUri] Categoria categoria)
         {
             List<Periculosidade> periculosidades;
-            using (CategoriaDao dao = new CategoriaDao())
-            {
-                periculosidades = dao.ListarPericulosidade(categoria);
-            }
+            CategoriaDao dao = new CategoriaDao();
+            periculosidades = dao.ListarPericulosidade(categoria);
             return JsonConvert.SerializeObject(periculosidades);
         }
 
@@ -69,10 +63,8 @@ namespace ServiceLayer.Controllers
         public string ListarTipos([FromUri] Categoria categoria)
         {
             List<Tipo> tipos;
-            using (CategoriaDao dao = new CategoriaDao())
-            {
-                tipos = dao.ListarTipo(categoria);
-            }
+            CategoriaDao dao = new CategoriaDao();
+            tipos = dao.ListarTipo(categoria);
             return JsonConvert.SerializeObject(tipos);
         }
         [HttpGet]
@@ -80,10 +72,8 @@ namespace ServiceLayer.Controllers
         public string ListarComposicaoQuimica([FromUri] Categoria categoria)
         {
             List<ComposicaoQuimica> compQuimica;
-            using (CategoriaDao dao = new CategoriaDao())
-            {
-                compQuimica = dao.ListarComposicaoQuimica(categoria);
-            }
+            CategoriaDao dao = new CategoriaDao();
+            compQuimica = dao.ListarComposicaoQuimica(categoria);
             return JsonConvert.SerializeObject(compQuimica);
         }
         [HttpPost]
@@ -93,7 +83,7 @@ namespace ServiceLayer.Controllers
             CategoriaDao dao = new CategoriaDao();
             if(categoria != null)
             {
-                dao.Inserir(categoria);
+                dao.InserirCategoria(categoria);
                 if(categoria.Id > 0)
                 {
                     return categoria.Id;

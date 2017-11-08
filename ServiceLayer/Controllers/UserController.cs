@@ -16,21 +16,19 @@ namespace ServiceLayer.Controllers
        [ActionName("EfetuarLogin")]
        public string EfetuarLogin([FromUri]Usuario usuario) 
         {
-            using (UsuarioDao dao = new UsuarioDao())
-            { 
+            UsuarioDao dao = new UsuarioDao();
                 var login = dao.EfetuarLogin(usuario.Email, usuario.Senha);
                 if (login != null)
                     return JsonConvert.SerializeObject(login);
                 return "";
-            }
+
         }
 
         [HttpGet]
         [ActionName("CadastrarUsuario")]
         public string CadastrarUsuario([FromUri]Usuario usuario)
         {
-            using (UsuarioDao dao = new UsuarioDao())
-            {
+            UsuarioDao dao = new UsuarioDao();
                 try
                 {
                     dao.CadastrarUsuario(usuario);
@@ -38,9 +36,9 @@ namespace ServiceLayer.Controllers
                 }
                 catch(Exception e)
                 {
+                Console.Write(e);
                     return "Ocorreu algum problema, tente novamente em alguns minutos";
                 }
-            }
         }
     }
 }

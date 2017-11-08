@@ -7,15 +7,14 @@ using BusinessLayer.Model;
 
 namespace BusinessLayer.Dao
 {
-    public class UsuarioEventoDao : SqlServerDao
+    public class UsuarioEventoDao
     {
         public List<Usuario> BuscarInscritos(string nome)
         {
             Evento evento;
-            using (EventoDao dao = new EventoDao())
-            {
-                evento = dao.BuscarEventoNome(nome);
-            }
+            EventoDao dao_ev = new EventoDao();
+            evento = dao_ev.BuscarEventoNome(nome);
+            
             using (SqlServerDao dao = new SqlServerDao())
             {
                 List<Usuario> test = dao.ListarTodos<Usuario>();

@@ -7,11 +7,11 @@ using BusinessLayer.Model;
 
 namespace BusinessLayer.Dao
 {
-    public class EventoDao : SqlServerDao
+    public class EventoDao
     {
         public Evento BuscarEventoNome(string nome)
         {
-            using(SqlServerDao dao = new EventoDao())
+            using(SqlServerDao dao = new SqlServerDao())
             {
                 Evento evento = dao.Buscar<Evento>(p => p.Nome.Equals(nome)).FirstOrDefault();
                 return evento;
@@ -20,7 +20,7 @@ namespace BusinessLayer.Dao
 
         public List<Evento> BuscarEventos()
         {
-            using (SqlServerDao dao = new EventoDao())
+            using (SqlServerDao dao = new SqlServerDao())
             {
                 //Evento evento = dao.Buscar<Evento>(p => p.Nome.Equals(nome)).FirstOrDefault();
                 List<Evento> eventos = dao.Buscar<Evento>(p => p.Id > 0);
@@ -32,7 +32,7 @@ namespace BusinessLayer.Dao
         {
             if (evento != null)
             {
-                using (SqlServerDao dao = new EventoDao())
+                using (SqlServerDao dao = new SqlServerDao())
                 {
                     dao.Inserir(evento);
                     return true;

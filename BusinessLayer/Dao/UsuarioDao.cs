@@ -7,11 +7,11 @@ using BusinessLayer.Model;
 
 namespace BusinessLayer.Dao
 {
-    public class UsuarioDao : SqlServerDao
+    public class UsuarioDao
     {
         public Usuario EfetuarLogin(string email, string senha)
         {
-            using(SqlServerDao dao = new UsuarioDao())
+            using(SqlServerDao dao = new SqlServerDao())
             {
                 var login = dao.Buscar<Usuario>(p => p.Email.Equals(email)).FirstOrDefault();
                 if(login == null)
@@ -32,7 +32,7 @@ namespace BusinessLayer.Dao
 
         public void CadastrarUsuario(Usuario usuario)
         {
-            using(SqlServerDao dao = new UsuarioDao())
+            using(SqlServerDao dao = new SqlServerDao())
             {
                 Usuario user = new Usuario()
                 {

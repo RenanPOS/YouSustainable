@@ -17,8 +17,7 @@ namespace ServiceLayer.Controllers
         public string ListarEventos(int id_evento)
         {
             List<Evento> eventos;
-            using (EventoDao dao = new EventoDao())
-            {
+            EventoDao dao = new EventoDao();
                 eventos = dao.BuscarEventos();
                 if(eventos.Count > 0)
                 {
@@ -37,15 +36,13 @@ namespace ServiceLayer.Controllers
                 return NHibernateContractResolver.gerarJSON(eventos);
                 */
                 return JsonConvert.SerializeObject(eventos);
-            }
         }
 
         [HttpGet]
         [ActionName("CadastrarEvento")]
         public int Inserir([FromUri]Evento evento)
         {
-            using (EventoDao dao = new EventoDao())
-            {
+            EventoDao dao = new EventoDao();
                 try
                 {
                     dao.Inserir(evento);
@@ -54,7 +51,6 @@ namespace ServiceLayer.Controllers
                 {
                     return 0;
                 }
-            }
         }
     }
 }

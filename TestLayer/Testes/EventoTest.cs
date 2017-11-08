@@ -82,12 +82,10 @@ namespace TestLayer
         [TestMethod]
         public void BuscarInscrito()
         {
-            using (UsuarioEventoDao dao = new UsuarioEventoDao())
-            {
+            UsuarioEventoDao dao = new UsuarioEventoDao();
                 var inscritos = dao.BuscarInscritos("Evento 3");
 
                 Assert.AreNotEqual(inscritos.Count, 0);
-            }
         }
 
     }

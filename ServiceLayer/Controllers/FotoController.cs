@@ -17,8 +17,7 @@ namespace ServiceLayer.Controllers
         {
             if(foto!= null)
             {
-                using(FotoDao dao = new FotoDao())
-                {
+                FotoDao dao = new FotoDao();
                     try
                     {
                         dao.Inserir(foto);
@@ -27,7 +26,6 @@ namespace ServiceLayer.Controllers
                     {
                         return 0;
                     }
-                }
             }
             return 0;
         }

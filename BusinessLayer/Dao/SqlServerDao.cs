@@ -7,34 +7,39 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Model;
 using DataLayer.Model;
+using BusinessLayer.Migrations;
 
 namespace BusinessLayer.Dao
 {
     public class SqlServerDao : DataLayer.Dao.SqlServerDao
     {
-        protected DbSet<Acao> DbSetAcao { get; set; }
-        protected DbSet<Administrador> DbSetAdministrador { get; set; }
-        protected DbSet<Alerta> DbSetAlerta { get; set; }
-        protected DbSet<Categoria> DbSetCategoria { get; set; }
-        protected DbSet<ComposicaoQuimica> DbSetComposicaoQuimica { get; set; }
-        protected DbSet<DataRota> DbSetDataRota { get; set; }
-        protected DbSet<Foto> DbSetFoto { get; set; }
-        protected DbSet<Localizacao> DbSetLocalizacao { get; set; }
-        protected DbSet<Modulo> DbSetModulo { get; set; }
-        protected DbSet<Origem> DbSetOrigem { get; set; }
-        protected DbSet<Periculosidade> DbSetPericulosidade { get; set; }
-        protected DbSet<Periodo> DbSetPeriodo { get; set; }
-        protected DbSet<PontoDescarte> DbSetPontoDescarte { get; set; }
-        protected DbSet<Privilegio> DbSetPrivilegio { get; set; }
-        protected DbSet<RotaColeta> DbSetRotaColeta { get; set; }
-        protected DbSet<Tipo> DbSetTipo { get; set; }
-        protected DbSet<Usuario> DbSetUsuario { get; set; }
-        protected DbSet<Area> DbSetArea { get; set; }
-        protected DbSet<Evento> DbSetEvento { get; set; }
-        protected DbSet<ZonaVerde> DbSetZonaVerde { get; set; }
-        protected DbSet<Residuo> DbSetResiduo { get; set; }
-        protected DbSet<Denuncia> DbSetDenuncia { get; set; }
-        protected DbSet<Informativo> DbSetInformativo { get; set; }
+        static SqlServerDao()
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerDao, Configuration>());
+        }
+        public DbSet<Acao> DbSetAcao { get; set; }
+        public DbSet<Administrador> DbSetAdministrador { get; set; }
+        public DbSet<Alerta> DbSetAlerta { get; set; }
+        public DbSet<Categoria> DbSetCategoria { get; set; }
+        public DbSet<ComposicaoQuimica> DbSetComposicaoQuimica { get; set; }
+        public DbSet<DataRota> DbSetDataRota { get; set; }
+        public DbSet<Foto> DbSetFoto { get; set; }
+        public DbSet<Localizacao> DbSetLocalizacao { get; set; }
+        public DbSet<Modulo> DbSetModulo { get; set; }
+        public DbSet<Origem> DbSetOrigem { get; set; }
+        public DbSet<Periculosidade> DbSetPericulosidade { get; set; }
+        public DbSet<Periodo> DbSetPeriodo { get; set; }
+        public DbSet<PontoDescarte> DbSetPontoDescarte { get; set; }
+        public DbSet<Privilegio> DbSetPrivilegio { get; set; }
+        public DbSet<RotaColeta> DbSetRotaColeta { get; set; }
+        public DbSet<Tipo> DbSetTipo { get; set; }
+        public DbSet<Usuario> DbSetUsuario { get; set; }
+        public DbSet<Area> DbSetArea { get; set; }
+        public DbSet<Evento> DbSetEvento { get; set; }
+        public DbSet<ZonaVerde> DbSetZonaVerde { get; set; }
+        public DbSet<Residuo> DbSetResiduo { get; set; }
+        public DbSet<Denuncia> DbSetDenuncia { get; set; }
+        public DbSet<Informativo> DbSetInformativo { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -61,6 +66,15 @@ namespace BusinessLayer.Dao
                     });
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
             modelBuilder.Entity<Administrador>().ToTable("Administrador");
+            modelBuilder.Entity<Categoria>()
+                .HasMany<Origem>(s => s.Origens)
+                .WithMany(c => c.Categorias)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("Categoria.Id");
+                    cs.MapRightKey("Origem.Id");
+                    cs.ToTable("OrigemCategoria");
+                });
         }
     }
 }

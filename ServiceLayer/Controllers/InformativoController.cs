@@ -17,8 +17,7 @@ namespace ServiceLayer.Controllers
         public string InformativoAleatorio()
         {
             Informativo informativo;
-            using (InformativoDao dao = new InformativoDao())
-            {
+            InformativoDao dao = new InformativoDao();
                 informativo = dao.InformativoAleatorio();
                 if (informativo != null)
                 {
@@ -28,7 +27,7 @@ namespace ServiceLayer.Controllers
                 {
                     return "";
                 }
-            }
+            
         }
     }
 }
