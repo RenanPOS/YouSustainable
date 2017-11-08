@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,14 +12,17 @@ namespace BusinessLayer.Model
     {
         public RotaColeta()
         {
-            PontosDescarte = new HashSet<PontoDescarte>();
+            PontosDescarte = new List<PontoDescarte>();
         }
+
+        [ForeignKey("Area")]
+        public int AreaId { get; set; }
 
         public string Nome { get; set; }
         public string Status { get; set; }
 
-        public virtual ICollection<PontoDescarte> PontosDescarte { get; set; }
-        public virtual DataRota Data { get; set; }
-        public virtual Area Area { get; set; }
+        public ICollection<PontoDescarte> PontosDescarte { get; set; }
+        public DataRota Data { get; set; }
+        public Area Area { get; set; }
     }
 }

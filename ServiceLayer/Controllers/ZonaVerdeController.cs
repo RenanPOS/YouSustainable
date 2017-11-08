@@ -21,7 +21,7 @@ namespace ServiceLayer.Controllers
             ZonaVerdeDao zonaVerdeDao = new ZonaVerdeDao();
             var test = zonaVerdeDao.Inserir(zonaVerde);
 
-            return true;
+            return test;
         }
 
         [HttpGet]
@@ -37,5 +37,16 @@ namespace ServiceLayer.Controllers
             
         }
 
+        [HttpGet]
+        [ActionName("BuscarLocalizacao")]
+        public String BuscarLocalizacao(int id)
+        {
+            SqlServerDao dao = new SqlServerDao();
+
+            Localizacao localizacao = dao.BuscarPorId<Localizacao>(id);
+
+            return JsonConvert.SerializeObject(localizacao);
+        }
+ 
     }
 }

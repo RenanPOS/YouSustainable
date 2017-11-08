@@ -26,5 +26,13 @@ namespace BusinessLayer.Dao
                 return lista;
             }
         }
+
+        /*public PontoDescarte BuscarPontoDescarte(int id)
+        {
+            SqlServerDao dao = new SqlServerDao();
+            Alerta alerta = dao.BuscarPorId<Alerta>(id);
+            PontoDescarte pontoDescarte = dao.Buscar<PontoDescarte>(p => p.Alertas.Contains(alerta)).FirstOrDefault();
+            return pontoDescarte;
+        }*/
     }
 }

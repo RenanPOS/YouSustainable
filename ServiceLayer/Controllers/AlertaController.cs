@@ -12,17 +12,23 @@ namespace ServiceLayer.Controllers
 {
     public class AlertaController : ApiController
     {
-        /*[HttpGet]
+        [HttpGet]
         [ActionName("CadastrarAlerta")]
-        public bool Inserir([FromUri]ZonaVerde zonaVerde, [FromUri]Localizacao localizacao)
+        public bool Inserir([FromUri]Alerta alerta, [FromUri]PontoDescarte pontoDescarte)
         {
-            zonaVerde.Localizacao = localizacao;
+            alerta.PontoDescarte = pontoDescarte;
+            alerta.DataCriacao = DateTime.Now;
+            alerta.DataAtualizacao = DateTime.Now;
 
-            ZonaVerdeDao zonaVerdeDao = new ZonaVerdeDao();
-            var test = zonaVerdeDao.Inserir(zonaVerde);
+            SqlServerDao sqlDao = new SqlServerDao();
+           
+            var ponto = sqlDao.BuscarPorId<PontoDescarte>(alerta.PontoDescarte.Id);
+            ponto.Alertas.Add(alerta);
+            ponto.Estado = "Inutilizável";
+            sqlDao.Atualizar<PontoDescarte>(ponto);
 
             return true;
-        }*/
+        }
 
         [HttpGet]
         [ActionName("ListarAlertas")]
@@ -36,5 +42,16 @@ namespace ServiceLayer.Controllers
             return JsonConvert.SerializeObject(alertas);
 
         }
+
+        /*[HttpGet]
+        [ActionName("BuscarPontoDescarte")]
+        public String BuscarPontoDescarte(int id)
+        {
+            AlertaDao dao = new AlertaDao();
+
+            PontoDescarte ponto = dao.BuscarPontoDescarte(id);
+
+            return JsonConvert.SerializeObject(ponto);
+        }*/
     }
 }

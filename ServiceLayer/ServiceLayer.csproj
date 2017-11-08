@@ -92,21 +92,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-<<<<<<< HEAD
     <Compile Include="Controllers\AlertaController.cs" />
-=======
+    <Compile Include="Controllers\AreaAdministrativaController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\FotoController.cs" />
->>>>>>> branch-lucas
     <Compile Include="Controllers\InformativoController.cs" />
     <Compile Include="Controllers\NHibernateContractResolver.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HelloController.cs" />
-<<<<<<< HEAD
     <Compile Include="Controllers\PontoDescarteController.cs" />
-=======
     <Compile Include="Controllers\ResiduoController.cs" />
->>>>>>> branch-lucas
+    <Compile Include="Controllers\RotaColetaController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ZonaVerdeController.cs" />
     <Compile Include="Global.asax.cs">

@@ -24,7 +24,7 @@ namespace TestLayer.Testes
 
             using(SqlServerDao sqlDao = new SqlServerDao())
             {
-                var ponto = sqlDao.BuscarPorId<PontoDescarte>(5);
+                var ponto = sqlDao.BuscarPorId<PontoDescarte>(1);
                 ponto.Alertas.Add(alerta);
                 ponto.Estado = "Inutilizável";
                 sqlDao.Atualizar<PontoDescarte>(ponto);

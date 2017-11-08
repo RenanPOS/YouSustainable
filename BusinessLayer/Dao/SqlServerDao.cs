@@ -61,6 +61,8 @@ namespace BusinessLayer.Dao
                     });
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
             modelBuilder.Entity<Administrador>().ToTable("Administrador");
+           /* modelBuilder.Entity<RotaColeta>()
+                .HasRequired<Area>(r => r.Area);*/
         }
     }
 }

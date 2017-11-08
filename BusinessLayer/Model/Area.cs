@@ -20,10 +20,10 @@ namespace BusinessLayer.Model
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
-        public virtual ICollection<Privilegio> Privilegios { get; set; }
-        public virtual ICollection<Evento> Eventos { get; set; }
-        public virtual ICollection<RotaColeta> RotasColeta { get; set; }
-        public virtual ICollection<PontoDescarte> PontosDescarte { get; set; }
+        public ICollection<Privilegio> Privilegios { get; set; }
+        public ICollection<Evento> Eventos { get; set; }
+        public ICollection<RotaColeta> RotasColeta { get; set; }
+        public ICollection<PontoDescarte> PontosDescarte { get; set; }
 
     }
 }
