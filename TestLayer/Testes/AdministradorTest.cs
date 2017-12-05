@@ -13,7 +13,7 @@ namespace TestLayer.Testes
         {
             Administrador administrador = new Administrador()
             {
-                Nome = "Nome adm",
+                Nome = "Admin",
                 Email = "adm_email@gmail.com",
                 Senha = "admsenha",
                 RaioBusca = 200,
@@ -37,8 +37,8 @@ namespace TestLayer.Testes
                 Administrador adm = dao.BuscarPorId<Administrador>(3);
                 Informativo informativo = new Informativo()
                 {
-                    Titulo = "Informativo teste",
-                    Descricao = "Informativo para teste, vai funcionar, e o relacionamento vai estar nice"
+                    Titulo = "Memória Ram",
+                    Descricao = "Memória ram não deve ser descartada como um metal comúm, procure um local apropriado"
                 };
                 informativo.Administradores.Add(adm);
                 dao.Inserir<Informativo>(informativo);

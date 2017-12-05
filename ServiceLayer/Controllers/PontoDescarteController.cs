@@ -35,6 +35,19 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet]
+        [ActionName("ListarPontosDescarte")]
+        public String ListarPontosDescarte(int id)
+        {
+            List<PontoDescarte> pontosDescarte;
+            PontoDescarteDao dao = new PontoDescarteDao();
+
+            pontosDescarte = dao.ListarTodos(id);
+
+            return JsonConvert.SerializeObject(pontosDescarte);
+
+        }
+
+        [HttpGet]
         [ActionName("PontoDescarteDetail")]
         public String PontoDescarteDetail(int id)
         {

@@ -84,5 +84,39 @@ namespace BusinessLayer.Dao
                 return compQuimica;
             }
         }
+
+        public int InserirCategoria(Categoria categoria)
+        {
+            SqlServerDao dao_generico = new SqlServerDao();
+            List<Origem> origens = new List<Origem>();
+            foreach (Origem origem in categoria.Origens)
+            {
+                origens.Add(dao_generico.BuscarPorId<Origem>(origem.Id));
+            }
+            categoria.Origens = origens;
+
+            List<ComposicaoQuimica> composicoesQuimicas = new List<ComposicaoQuimica>();
+            foreach (ComposicaoQuimica composicao in categoria.ComposicoesQuimica)
+            {
+                composicoesQuimicas.Add(dao_generico.BuscarPorId<ComposicaoQuimica>(composicao.Id));
+            }
+            categoria.ComposicoesQuimica = composicoesQuimicas;
+
+            List<Periculosidade> periculosidades = new List<Periculosidade>();
+            foreach (Periculosidade periculosidade in categoria.Periculosidades)
+            {
+                periculosidades.Add(dao_generico.BuscarPorId<Periculosidade>(periculosidade.Id));
+            }
+            categoria.Periculosidades = periculosidades;
+
+            List<Tipo> tipos = new List<Tipo>();
+            foreach (Tipo tipo in categoria.Tipos)
+            {
+                tipos.Add(dao_generico.BuscarPorId<Tipo>(tipo.Id));
+            }
+            categoria.Tipos = tipos;
+            dao_generico.Inserir(categoria);
+            return categoria.Id;
+        }
     }
 }

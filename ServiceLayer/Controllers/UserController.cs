@@ -42,5 +42,21 @@ namespace ServiceLayer.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        [ActionName("CheckarAdm")]
+        public bool CheckarAdm(string email)
+        {
+            UsuarioDao dao = new UsuarioDao();
+            return dao.CheckarAdm(email);
+        }
+
+        /*[HttpGet]
+        [ActionName("ListarUsuarioArea")]
+        public bool ListarUsuarioArea(int id)
+        {
+            UsuarioDao dao = new UsuarioDao();
+            return dao.ListarTodos(id);
+        }*/
     }
 }

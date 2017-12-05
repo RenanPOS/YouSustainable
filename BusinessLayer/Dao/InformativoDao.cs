@@ -11,28 +11,49 @@ namespace BusinessLayer.Dao
     {
         public Informativo BuscarInformativoPorTitulo(string titulo)
         {
+            int qtde;
+
             using (SqlServerDao dao = new InformativoDao())
             {
-                Informativo informativo = dao.Buscar<Informativo>(p => p.Titulo == titulo).FirstOrDefault();
+                qtde = dao.ListarTodos<Informativo>().Count();
+                Random rd = new Random();
+                int aleatorio = rd.Next(1, qtde);
+                Informativo informativo = dao.BuscarPorId<Informativo>(aleatorio);
                 return informativo;
             }
+            
         }
 
         public Informativo InformativoAleatorio()
         {
             using (SqlServerDao dao = new InformativoDao())
             {
-                Informativo informativo = (Informativo)dao.Buscar<Informativo>(p => p.Id > 0).FirstOrDefault();
-                return informativo;
+                List<Informativo> informativos = dao.ListarTodos<Informativo>();
+                int qtde = informativos.Count();
+                Random rd = new Random();
+                int aleatorio = rd.Next(1, qtde);
+                return informativos[aleatorio];
             }
         }
 
-        public void Inserir(Informativo informativo)
+        public bool Inserir(Informativo informativo)
         {
             using (SqlServerDao dao = new InformativoDao())
             {
                 //Informativo Informativo = dao.Buscar<Informativo>(p => p.Nome.Equals(nome)).FirstOrDefault();
                 dao.Inserir(informativo);
+                var test = dao.Buscar<Informativo>(p => p.Titulo.Equals(informativo.Titulo));
+                if (test != null)
+                    return true;
+                return false;
+            }
+        }
+
+        public List<Informativo> ListarTodos()
+        {
+            using(SqlServerDao dao = new SqlServerDao())
+            {
+                return dao.ListarTodos<Informativo>();
             }
         }
     }

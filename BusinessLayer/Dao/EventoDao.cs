@@ -36,5 +36,14 @@ namespace BusinessLayer.Dao
                     dao.Inserir(evento);
             }
         }
+
+        public List<Evento> ListarTodos(int id)
+        {
+            using(SqlServerDao dao = new SqlServerDao())
+            {
+                List<Evento> eventos = dao.Buscar<Evento>(p => p.Area.Id.Equals(id));
+                return eventos;
+            }
+        }
     }
 }

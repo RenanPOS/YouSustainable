@@ -30,5 +30,22 @@ namespace ServiceLayer.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        [ActionName("ListarInformativos")]
+        public string ListarInformativos()
+        {
+            InformativoDao dao = new InformativoDao();
+            List<Informativo> lista = dao.ListarTodos();
+            return JsonConvert.SerializeObject(lista);
+        }
+
+        [HttpGet]
+        [ActionName("CadastrarInformativo")]
+        public bool Inserir([FromUri]Informativo informativo)
+        {
+            InformativoDao dao = new InformativoDao();
+            return dao.Inserir(informativo);
+        }
     }
 }

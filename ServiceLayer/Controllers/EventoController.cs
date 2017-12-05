@@ -14,7 +14,7 @@ namespace ServiceLayer.Controllers
     {
         [HttpGet]
         [ActionName("ListarEventos")]
-        public string ListarEventos(int id_evento)
+        public string ListarEventos()
         {
             List<Evento> eventos;
             using (EventoDao dao = new EventoDao())
@@ -41,18 +41,28 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet]
+        [ActionName("ListarEventos")]
+        public string ListarEventos(int id)
+        {
+            EventoDao dao = new EventoDao();
+            var eventos = dao.ListarTodos(id);
+
+            return JsonConvert.SerializeObject(eventos);
+        }
+
+        [HttpGet]
         [ActionName("CadastrarEvento")]
-        public bool Inserir([FromUri]Evento evento)
+        public int Inserir([FromUri]Evento evento)
         {
             using (EventoDao dao = new EventoDao())
             {
                 try
                 {
                     dao.Inserir(evento);
-                    return true;
+                    return evento.Id;
                 }catch(Exception e)
                 {
-                    return false;
+                    return 0;
                 }
             }
         }

@@ -70,5 +70,21 @@ namespace ServiceLayer.Controllers
             }
             return JsonConvert.SerializeObject(compQuimica);
         }
+
+        [HttpPost]
+        [ActionName("SalvarCategoria")]
+        public int SalvarCategoria([FromBody] Categoria categoria)
+        {
+            CategoriaDao dao = new CategoriaDao();
+            if (categoria != null)
+            {
+                dao.InserirCategoria(categoria);
+                if (categoria.Id > 0)
+                {
+                    return categoria.Id;
+                }
+            }
+            return 0;
+        }
     }
 }

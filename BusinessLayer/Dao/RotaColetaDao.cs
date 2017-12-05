@@ -31,13 +31,20 @@ namespace BusinessLayer.Dao
             return false;
         }
 
-        public List<RotaColeta> ListarTodas()
+        public List<RotaColeta> ListarTodas(int id)
         {
             using (SqlServerDao dao = new SqlServerDao()) {
 
                 List<RotaColeta> rotas = dao.ListarTodos<RotaColeta>();
+                List<RotaColeta> rotasArea = new List<RotaColeta>();
+                foreach(RotaColeta rota in rotas){
+                    if(rota.AreaId == id)
+                    {
+                        rotasArea.Add(rota);
+                    }
+                }
+                return rotasArea;
 
-                return rotas;
             }
         }
     }

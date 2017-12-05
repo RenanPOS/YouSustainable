@@ -33,6 +33,27 @@ namespace BusinessLayer.Dao
             }
         }
 
+        public List<PontoDescarte> ListarTodos(int id)
+        {
+            using (SqlServerDao dao = new SqlServerDao())
+            {
+                var lista = dao.ListarTodos<PontoDescarte>();
+                List<PontoDescarte> pontos = new List<PontoDescarte>();
+                foreach (PontoDescarte ponto in lista)
+                {
+                    if(ponto.Area.Id == 0)
+                    {
+                        ///tratar os sem ids de area
+                    }
+                    if (ponto.Area.Id == id)
+                    {
+                        pontos.Add(ponto);
+                    }
+                }
+                return pontos;
+            }
+        }
+
         public PontoDescarte BuscarPorId(int id)
         {
             using(SqlServerDao dao = new SqlServerDao())

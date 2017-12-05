@@ -44,5 +44,40 @@ namespace BusinessLayer.Dao
                 dao.Inserir<Usuario>(user);
             }
         }
+
+        public bool CheckarAdm(string email)
+        {
+            using(SqlServerDao dao = new SqlServerDao())
+            {
+                Usuario user = dao.Buscar<Usuario>(p => p.Email.Equals(email)).FirstOrDefault();
+                Administrador adm = dao.BuscarPorId<Administrador>(user.Id);
+                if(adm == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        /*public List<Usuario> ListarTodos(int id)
+        {
+            using(SqlServerDao dao = new SqlServerDao())
+            {
+                List<Usuario> users = dao.ListarTodos<Usuario>();
+                List<Privilegio> privilegios = new List<Privilegio>();
+                List<Usuario> userAreas = new List<Usuario>();
+                foreach (Usuario user in users)
+                {
+                    privilegios = dao.Buscar<Privilegio>(p => p.Usuario.Equals(user));
+                }
+         
+                foreach(Privilegio privilegio in privilegios){
+                    if(id == privilegio.Area.Id)
+                    {
+                        
+                    }
+                }
+            }
+        }*/
     }
 }

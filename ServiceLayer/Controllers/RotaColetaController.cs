@@ -25,12 +25,12 @@ namespace ServiceLayer.Controllers
 
         [HttpGet]
         [ActionName("ListarRotas")]
-        public String ListarRotas()
+        public String ListarRotas(int id)
         {
             List<RotaColeta> rotas;
             RotaColetaDao dao = new RotaColetaDao();
 
-            rotas = dao.ListarTodas();
+            rotas = dao.ListarTodas(id);
 
             return JsonConvert.SerializeObject(rotas);
 
